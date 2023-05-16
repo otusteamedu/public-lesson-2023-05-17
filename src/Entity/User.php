@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
+use App\ApiPlatform\JsonFilter;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -15,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity]
 #[ApiResource]
 #[ApiFilter(RangeFilter::class, properties: ['age'])]
+#[ApiFilter(JsonFilter::class, properties: ['config.type' => ['type' => 'string', 'strategy' => 'iend']])]
 class User
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
