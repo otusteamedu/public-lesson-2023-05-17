@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: '`user`')]
 #[ORM\Entity]
 #[ApiResource]
-#[ApiFilter(SearchFilter::class, properties: ['login' => 'exact'])]
+#[ApiFilter(SearchFilter::class, properties: ['age' => 'exact'])]
 class User
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
