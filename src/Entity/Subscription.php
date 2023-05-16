@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
+use App\ApiPlatform\JsonFilter;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -16,6 +17,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity]
 #[ApiResource(normalizationContext: ['groups' => ['subscription:get']])]
 #[ApiFilter(RangeFilter::class, properties: ['author.id'])]
+#[ApiFilter(JsonFilter::class, properties: ['follower.config.type' => ['type' => 'string', 'strategy' => 'partial']])]
 class Subscription
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]

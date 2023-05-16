@@ -3,7 +3,6 @@ namespace App\ApiPlatform;
 
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use ApiPlatform\Core\Exception\InvalidArgumentException;
-use App\Common\Exception\InvalidDatabasePlatformException;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\QueryBuilder;
@@ -106,7 +105,7 @@ class JsonFilter extends AbstractJsonFilter
     /**
      * @param mixed $value
      *
-     * @throws InvalidDatabasePlatformException|Exception
+     * @throws Exception
      */
     protected function filterProperty(
         string $property,

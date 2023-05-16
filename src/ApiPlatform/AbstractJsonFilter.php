@@ -4,7 +4,6 @@ namespace App\ApiPlatform;
 
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\AbstractContextAwareFilter;
 use ApiPlatform\Core\Exception\InvalidArgumentException;
-use App\Common\Exception\InvalidDatabasePlatformException;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
 use Doctrine\DBAL\Types\Types;
