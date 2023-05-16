@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: '`user`')]
 #[ORM\Entity]
 #[ApiResource]
-#[ApiFilter(SearchFilter::class, properties: ['age' => 'exact'])]
+#[ApiFilter(RangeFilter::class, properties: ['age'])]
 class User
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
