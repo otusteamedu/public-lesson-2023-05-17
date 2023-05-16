@@ -9,6 +9,7 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Table(name: '`user`')]
 #[ORM\Entity]
@@ -22,6 +23,7 @@ class User
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 32, nullable: false)]
+    #[Groups(['subscription:get'])]
     private string $login;
 
     #[ORM\Column(name: 'created_at', type: 'datetime', nullable: false)]
@@ -37,9 +39,11 @@ class User
     private Collection $followers;
 
     #[ORM\Column(type: 'integer', nullable: false)]
+    #[Groups(['subscription:get'])]
     private int $age;
 
     #[ORM\Column(type: 'json', nullable: true)]
+    #[Groups(['subscription:get'])]
     private array $config;
 
     public function __construct()
