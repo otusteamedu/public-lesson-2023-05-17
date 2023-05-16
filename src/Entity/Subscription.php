@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Index(columns: ['follower_id'], name: 'subscription__follower_id__ind')]
 #[ORM\UniqueConstraint(name: 'subscription__author_id__follower_id__uniq', columns: ['author_id', 'follower_id'])]
 #[ORM\Entity]
+#[ApiResource]
 class Subscription
 {
     #[ORM\Column(name: 'id', type: 'bigint', unique: true)]
